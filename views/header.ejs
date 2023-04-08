@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row box-header">
+        <div class="col-6">
+            <h1>Catat.In</h1>
+        </div>
+        <div class="col-6 text-end">
+            <a href="/logout" class="btn btn-danger">Logout</a>
+        </div>
+        <div class="row">
+            <div class="col-6 my-3 mb-4 text-center wallet-bg">
+                <h3>Rp. <%= wallet.balance.toLocaleString() %>
+                </h3>
+                <p>Your Wallet</p>
+            </div>
+            <div class="col-6 my-3 mb-4 text-center expense-bg">
+                <h3>Rp. <%= wallet.expense.toLocaleString() %>
+                </h3>
+                <p>Your Expense</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="d-flex justify-content-center align-items-center">
+        <div class="container-box py-3">
+            <div class="row fw-bold">
+                <div class="col-6 text-center py-2" id="btn-income">
+                    Income
+                </div>
+                <div class="col-6 text-center bg-danger py-2" id="btn-expense">
+                    Expense
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

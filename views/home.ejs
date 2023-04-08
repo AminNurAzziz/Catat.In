@@ -1,0 +1,76 @@
+<% layout('layout/boilerplate') %>
+    <%- include('./header') %>
+        <div class="histori">
+            <div class="container fw-bold">
+                <div class="row">
+                    <% let transactionsByDate={}; for (r of result) { let transactionDate=new Date(r.date); let
+                        transactionDateString=transactionDate.toLocaleDateString('id-ID', { weekday: 'long' ,
+                        month: 'short' , day: 'numeric' }); if (!(transactionDateString in transactionsByDate)) {
+                        transactionsByDate[transactionDateString]=[]; }
+                        transactionsByDate[transactionDateString].push(r); } // !-SHOW DATE AND TRANSACTION ; -->
+                        for (let date in transactionsByDate) { %>
+                        <div class="text-left mt-4 text-muted d-flex justify-content-between align-items-center">
+                            <h6>
+                                <%= date %>
+                            </h6>
+                            <% let totalAmount=0; for (transaction of transactionsByDate[date]) { totalAmount
+                                +=transaction.amount; } %>
+                                <span class="badge bg-success mb-2 me-3">Rp <%= totalAmount %></span>
+                        </div>
+                        <% for (transaction of transactionsByDate[date]) { %>
+                            <div class="">
+                                <ul class="list-group">
+                                    <li
+                                        class="list-group-item text-muted d-flex justify-content-between align-items-center">
+                                        <%= transaction.category %>
+                                            <span class="badge bg-danger" id="bg-red">- Rp <%= transaction.amount %>
+                                                    </span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <% } %>
+                                <% } %>
+                                    <% if (result.length===0) { %>
+                                        <div class="col-md-12">
+                                            <p class="text-center">Belum ada transaksi.</p>
+                                        </div>
+                                        <% } %>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-input d-none">
+            <div class="container">
+                <div class="row justify-content-center px-3">
+                    <div class="col-md-12">
+                        <form action="/expense" method="POST">
+                            <div class="mb-3">
+                                <label for="tipe" class="form-label">Untuk Apa?</label>
+                                <div class="input-group">
+                                    <select class="form-select" id="tipe" name="category">
+                                        <option value="makan" selected>Makan</option>
+                                        <option value="minum">Minum</option>
+                                        <option value="jajan">Jajan</option>
+                                        <option value="lainnya">Lainnya</option>
+                                    </select>
+                                    <input type="text" class="form-control" id="tipe-lainnya" name="tipe-lainnya"
+                                        style="display: none;" placeholder="Masukkan tipe lainnya">
+                                    <button class="btn btn-outline-secondary" type="button"
+                                        id="tipe-lainnya-btn">Lainnya</button>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="tanggal" class="form-label">Tanggal</label>
+                                <input type="date" class="form-control" id="tanggal" name="date">
+                            </div>
+                            <div class="mb-3">
+                                <label for="jumlah" class="form-label">Jumlah</label>
+                                <input type="number" class="form-control" id="jumlah" name="amount">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <script src="/js/inputStyle.js"></script>
+            <script src="/js/buttonClick.js"></script>
