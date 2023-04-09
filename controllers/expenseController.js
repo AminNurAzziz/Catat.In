@@ -34,11 +34,11 @@ module.exports.setExpense = async (req, res, next) => {
     try {
         const expense = new Expense({ category, amount, date, user: req.user._id });
         const result = await expense.save();
-
+        const parseAmount = parseInt(amount);
         // Update saldo wallet user
         const wallet = await Wallet.findOne({ user: req.user._id });
-        wallet.balance -= amount;
-        wallet.expense += amount;
+        wallet.balance -= parseAmount;
+        wallet.expense += parseAmount;
         await wallet.save();
         res.redirect('/expense');
     } catch (error) {
@@ -47,13 +47,31 @@ module.exports.setExpense = async (req, res, next) => {
 };
 
 
-module.exports.deleteExpense = async (req, res, next) => {
+module.exports.deleteExpenses = async (req, res, next) => {
     try {
-        res.send('Delete')
+        const ids = req.body.ids; // Ambil ID transaksi yang dicentang dari body request
+        const expenses = await Expense.find({ _id: { $in: ids } }); // Ambil data transaksi yang memiliki ID yang ada di dalam array ids
+        for (let expense of expenses) {
+            const wallet = await Wallet.findOne({ user: req.user._id });
+            wallet.balance += expense.amount;
+            wallet.expense -= expense.amount;
+            await wallet.save();
+        }
+
+        // Update saldo wallet user
+        // const wallet = await Wallet.findOne({ user: req.user._id });
+        // wallet.balance += ids.amount;
+        // wallet.expense -= ids.amount;
+        // await wallet.save();
+
+        await Expense.deleteMany({ _id: { $in: ids } }); // Hapus transaksi yang memiliki ID yang ada di dalam array ids
+        console.log(ids)
+        res.status(200).json({ message: 'Transaksi berhasil dihapus.' });
+
     } catch (error) {
         next(error);
     }
-}
+};
 
 module.exports.updateExpense = async (req, res, next) => {
     try {
@@ -63,3 +81,37 @@ module.exports.updateExpense = async (req, res, next) => {
     }
 }
 
+module.exports.editWallet = async (req, res) => {
+    const walletId = req.params.id;
+    const wallet = await Wallet.findById(walletId);
+    let { balance, addition } = req.body;
+    if (addition === '' || addition === undefined || addition === null) {
+        addition = 0;
+    }
+    if (balance === '' || balance === undefined || balance === null) {
+        balance = wallet.balance;
+    }
+    console.log(balance, addition)
+    const newBalance = parseInt(balance) + parseInt(addition);
+    wallet.balance = newBalance;
+    await wallet.save();
+    res.redirect('/expense');
+};
+
+module.exports.editExpense = async (req, res) => {
+    let min = false;
+    const expenseId = req.params.id;
+    const expensee = await Wallet.findById(expenseId);
+    let { expense } = req.body;
+    if (expense === '' || expense === undefined || expense === null) {
+        expense = expensee.expense;
+        min = true;
+    }
+    const newExpense = parseInt(expense);
+    expensee.expense = newExpense;
+    if (min !== true) {
+        expensee.balance = expensee.balance - expensee.expense;
+    }
+    await expensee.save();
+    res.redirect('/expense');
+};

@@ -7,19 +7,30 @@
     height: 100vh;
 }
 
-.box-header {
+#btn-primary {
     background-color: #15B7B9;
+    border-color: #15B7B9;
+}
+
+.box-header {
+    background: rgb(41, 110, 111);
+    background: linear-gradient(0deg, rgba(41, 110, 111, 1) 0%, rgba(21, 183, 185, 1) 100%);
     color: #fff;
     padding: 10px;
     border-radius: 0px 0px 15px 15px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+#btn-income,
+#btn-expense {
+    cursor: pointer;
 }
 
 .container-box {
     border-radius: 10px;
     width: 200px;
     height: 60px;
-    margin-top: -30px;
+    margin-top: -40px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -48,4 +59,21 @@
 /* HISTORI */
 .list-group-item {
     font-size: 14px;
+}
+
+a {
+    text-decoration: none;
+    color: white !important;
+}
+
+
+.icon-edit-dompet {
+    margin-right: -30px;
+    margin-left: 6px;
+}
+
+.icon-edit-pengeluaran {
+    margin-left: -30px;
+    margin-right: 6px;
+
 }
