@@ -12,7 +12,7 @@ const LocalStrategy = require('passport-local');
 const User = require('./models/userSchema');
 
 //connecting to mongoose
-const url = 'mongodb://127.0.0.1:27017/catatIn';
+const url = 'mongodb+srv://azziz167:kCGrYTVpVYvxuhb8@cluster0.aevbadv.mongodb.net/?retryWrites=true&w=majority';
 mongoose.connect(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true
