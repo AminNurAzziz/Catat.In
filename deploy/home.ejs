@@ -1,0 +1,156 @@
+<% layout('layout/boilerplate') %>
+    <%- include('./header') %>
+        <div class="histori ">
+            <div class="container fw-bold">
+                <div class="row">
+                    <% let transactionsByDate={}; for (r of result) { let transactionDate=new Date(r.date); let
+                        transactionDateString=transactionDate.toLocaleDateString('id-ID', { weekday: 'long' ,
+                        month: 'short' , day: 'numeric' }); if (!(transactionDateString in transactionsByDate)) {
+                        transactionsByDate[transactionDateString]=[]; }
+                        transactionsByDate[transactionDateString].push(r); } // !-SHOW DATE AND TRANSACTION ; -->
+
+
+                        for (let date in transactionsByDate) { %>
+                        <div class="text-end" style="margin-top: -25px;">
+                            <i class="fa fa-check-square-o iconhapus" style="font-size:24px"></i>
+                        </div>
+                        <div class="text-center mt-3">
+                            <button type="button" class="btn select-all btn-primary d-none" id="btn-primary">Select
+                                All</button>
+                            <button type="button" class="btn hapus btn-danger d-none" id="btn-delete">Hapus</button>
+                            <button type="button" class="btn cencel btn-secondary d-none">Cencel</button>
+
+                        </div>
+
+                        <div class="text-left mt-4 text-muted d-flex justify-content-between align-items-center">
+                            <h6>
+                                <%= date %>
+                            </h6>
+                            <% let totalAmount=0; for (transaction of transactionsByDate[date]) { totalAmount
+                                +=transaction.amount; } %>
+                                <span class="badge bg-success mb-2 me-3">Rp <%= totalAmount.toLocaleString('id-ID') %>
+                                </span>
+                        </div>
+                        <% for (transaction of transactionsByDate[date]) { %>
+                            <div class="">
+
+                                <ul class="list-group">
+                                    <li class="list-group-item d-flex align-items-center">
+                                        <div class="form-check me-2 d-none">
+                                            <input type="checkbox" class="form-check-input"
+                                                data-id="<%= transaction._id %>">
+                                        </div>
+                                        <span class="mr-2">
+                                            <%= transaction.category %>
+                                        </span>
+                                        <div class="ms-auto">
+                                            <span class="badge bg-danger">- Rp <%=
+                                                    transaction.amount.toLocaleString('id-ID') %></span>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <% } %>
+                                <% } %>
+                                    <% if (result.length===0) { %>
+                                        <div class="col-md-12">
+                                            <p class="text-center">Belum ada transaksi.</p>
+                                        </div>
+                                        <% } %>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="form-input d-none">
+            <div class="container">
+                <div class="row justify-content-center px-3">
+                    <div class="col-md-12">
+                        <form action="/expense" method="POST">
+                            <div class="mb-3">
+                                <label for="tipe" class="form-label">Untuk Apa?</label>
+                                <div class="input-group">
+                                    <select class="form-select" id="tipe" name="category">
+                                        <option value="Makan" selected>Makan</option>
+                                        <option value="Minum">Minum</option>
+                                        <option value="Jajan">Jajan</option>
+                                        <option value="lainnya">Lainnya</option>
+                                    </select>
+                                    <input type="text" class="form-control" id="tipe-lainnya" name="tipe-lainnya"
+                                        style="display: none;" placeholder="Masukkan tipe lainnya">
+                                    <button class="btn btn-outline-secondary" type="button"
+                                        id="tipe-lainnya-btn">Lainnya</button>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="tanggal" class="form-label">Tanggal</label>
+                                <input type="date" class="form-control" id="tanggal" name="date">
+                            </div>
+                            <div class="mb-3">
+                                <label for="jumlah" class="form-label">Jumlah</label>
+                                <input type="number" class="form-control" id="jumlah" name="amount">
+                            </div>
+                            <button type="submit" class="btn btn-primary" id="btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="edit-dompet d-none">
+            <form action="/wallet/<%= wallet._id %>?_method=PATCH" method="POST">
+                <div class="px-5">
+                    <div class="mb-3 mt-5">
+                        <label for="jumlah" class="form-label">Edit Isi Dompet</label>
+                        <input type="number" class="form-control" id="balance" name="balance"
+                            placeholder="Rp. <%=wallet.balance%>">
+
+                    </div>
+                    <div class="mb-3">
+                        <label for="jumlah" class="form-label">Tambah Isi Dompet</label>
+                        <input type="number" class="form-control" id="addition" name="addition" placeholder="Rp. 0">
+                        <div class="d-flex justify-content-center mt-3">
+                            <button type="submit" class="btn btn-primary" id="btn-primary">Submit</button>
+                            <button type="button" class="btn btn-secondary ms-2" onclick="resetForm()">Reset</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="edit-expense d-none">
+            <form action="/editExpense/<%= wallet._id %>?_method=PATCH" method="POST">
+                <div class="px-5">
+                    <div class="mb-3 mt-5">
+                        <label for="jumlah" class="form-label">Edit Pengeluaran</label>
+                        <input type="number" class="form-control" id="expense" name="expense"
+                            placeholder="Rp. <%=wallet.expense%>">
+                    </div>
+
+                    <div class="d-flex justify-content-center mt-3">
+                        <button type="submit" class="btn btn-primary" id="btn-primary">Submit</button>
+                        <button type="button" class="btn btn-secondary ms-2"
+                            onclick="resetFormEditExpense()">Reset</button>
+                    </div>
+                </div>
+        </div>
+        </form>
+        </div>
+
+
+
+        <script>
+            function resetForm() {
+                document.getElementById("balance").value = 0;
+                document.getElementById("addition").value = 0;
+            }
+            function resetFormEditExpense() {
+                document.getElementById("expense").value = 0;
+                document.getElementById("add").value = 0;
+            }
+        </script>
+
+
+        <script src="/js/inputStyle.js"></script>
+        <script src="/js/buttonClick.js"></script>
+        <script src="/js/resAPI.js"></script>

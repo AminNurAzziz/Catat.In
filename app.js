@@ -10,9 +10,11 @@ const methodOverride = require('method-override')
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./models/userSchema');
+const env = require('dotenv').config();
+
 
 //connecting to mongoose
-const url = 'mongodb+srv://azziz167:NckGpJCWFbqkigr6@cluster0.aevbadv.mongodb.net/?retryWrites=true&w=majority'
+const url = `mongodb+srv://azziz167:hpF6XorqXppVX2F4@cluster0.aevbadv.mongodb.net/?retryWrites=true&w=majority`;
 mongoose.connect(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true
