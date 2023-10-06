@@ -14,11 +14,9 @@ const env = require('dotenv').config();
 
 
 //connecting to mongoose
-<<<<<<< HEAD:app.js
 const url = `mongodb+srv://azziz167:hpF6XorqXppVX2F4@cluster0.aevbadv.mongodb.net/?retryWrites=true&w=majority`;
-=======
-const url = 'mongodb+srv://azziz167:kCGrYTVpVYvxuhb8@cluster0.aevbadv.mongodb.net/?retryWrites=true&w=majority';
->>>>>>> 3425edc1da94cd8ecb1edbe9032996827364809f:index.js
+
+
 mongoose.connect(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true
