@@ -10,7 +10,7 @@ const methodOverride = require('method-override')
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./models/userSchema');
-const env = require('dotenv').config();
+// const env = require('dotenv').config();
 
 
 //connecting to mongoose
