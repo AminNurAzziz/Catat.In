@@ -95,4 +95,4 @@ Tujuan dari proyek ini adalah membantu siswa dalam mengembangkan kebiasaan yang 
 2. Clone repositori ini ke komputer Anda:
 
    ```bash
-   git clone https://github.com/namaanda/WriteExpenseForStudent.git
+   git clone https://github.com/namaanda/Catat.In.git
