@@ -76,11 +76,7 @@
 </p>
 
 
-
-
-
-
-Proyek "WriteExpenseForStudent" adalah sebuah aplikasi web yang dikembangkan menggunakan MongoDB, ExpressJS, dan NodeJS. Aplikasi ini dirancang untuk membantu siswa mencatat dan mengelola pengeluaran mereka selama masa sekolah.
+Proyek "Catat.in" adalah sebuah aplikasi web yang dikembangkan menggunakan MongoDB, ExpressJS, dan NodeJS. Aplikasi ini dirancang untuk membantu siswa mencatat dan mengelola pengeluaran mereka selama masa sekolah.
 
 ## Deskripsi
 
