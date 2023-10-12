@@ -82,11 +82,8 @@ Proyek "Catat.in" adalah sebuah aplikasi web yang dikembangkan menggunakan Mongo
 Aplikasi ini menyediakan berbagai fitur, termasuk:
 
 - **Pencatatan Pengeluaran:** Siswa dapat mencatat semua pengeluaran mereka, seperti pembelian buku, pulsa, makanan, dan lain-lain. Ini membantu siswa dalam memahami dan mengelola keuangan pribadi mereka.
-
-- **Kategori Pengeluaran:** Pengeluaran dapat dikelompokkan dalam berbagai kategori, seperti pendidikan, makanan, hiburan, dan lainnya. Ini memungkinkan siswa untuk melihat dengan jelas di mana uang mereka dihabiskan.
-
-- **Statistik dan Laporan:** Aplikasi ini menyediakan statistik dan laporan tentang pengeluaran siswa. Ini membantu siswa dalam memahami pola pengeluaran mereka.
-
+- **Total Harian:** Siswa dapat melihat total uang yang dihabiskan perhari sehingga dapat membatasi apabila uang yang mereka telah keluarkan telah melebihin batas pengeluaran harian.
+- **Saldo Dompet:** Siswa dapat melihat sisa isi dompet mereka tanpa harus menghitung uang yang ada di dompet mereka.
 - **Pengguna Multi:** Aplikasi ini dapat digunakan oleh beberapa siswa dengan akun mereka sendiri.
 
 Tujuan dari proyek ini adalah membantu siswa dalam mengembangkan kebiasaan yang baik dalam mengelola keuangan pribadi mereka dan memantau pengeluaran mereka selama masa sekolah.
