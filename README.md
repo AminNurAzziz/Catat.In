@@ -1,82 +1,28 @@
 # Catat.In
 
 # Tech Stack
-<h3 align="left">Languages and Tools:</h3>
-<p align="left">
-  <a href="https://getbootstrap.com" target="_blank" rel="noreferrer">
-    <img
-      src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg"
-      alt="bootstrap"
-      width="40"
-      height="40"
-    />
-  </a>
 
-  <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer">
-    <img
-      src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg"
-      alt="css3"
-      width="40"
-      height="40"
-    />
-  </a>
+This project utilizes the following technologies and tools:
 
-  <a href="https://expressjs.com" target="_blank" rel="noreferrer">
-    <img
-      src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg"
-      alt="express"
-      width="40"
-      height="40"
-    />
-  </a>
+- **Bootstrap:** [![Bootstrap Logo](https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg)](https://getbootstrap.com)
 
-  <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer">
-    <img
-      src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg"
-      alt="html5"
-      width="40"
-      height="40"
-    />
-  </a>
+- **CSS3:** [![CSS3 Logo](https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg)](https://www.w3schools.com/css/)
 
-  <a
-    href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
-    target="_blank"
-    rel="noreferrer"
-  >
-    <img
-      src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg"
-      alt="javascript"
-      width="40"
-      height="40"
-    />
-  </a>
-  <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer">
-    <img
-      src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg"
-      alt="mongodb"
-      width="40"
-      height="40"
-    />
-  </a>
+- **Express.js:** [![Express.js Logo](https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg)](https://expressjs.com)
 
-  <a href="https://nodejs.org" target="_blank" rel="noreferrer">
-    <img
-      src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg"
-      alt="nodejs"
-      width="40"
-      height="40"
-    />
-  </a>
-  <a href="https://postman.com" target="_blank" rel="noreferrer">
-    <img
-      src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg"
-      alt="postman"
-      width="40"
-      height="40"
-    />
-  </a>
-</p>
+- **HTML5:** [![HTML5 Logo](https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg)](https://www.w3.org/html/)
+
+- **JavaScript:** [![JavaScript Logo](https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+
+- **MongoDB:** [![MongoDB Logo](https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg)](https://www.mongodb.com/)
+
+- **Node.js:** [![Node.js Logo](https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg)](https://nodejs.org)
+
+- **Postman:** [![Postman Logo](https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg)](https://postman.com)
+
+Feel free to explore these technologies and tools by clicking on the respective links.
+
+
 
 
 Proyek "WriteExpenseForStudent" adalah sebuah aplikasi web yang dikembangkan menggunakan MongoDB, ExpressJS, dan NodeJS. Aplikasi ini dirancang untuk membantu siswa mencatat dan mengelola pengeluaran mereka selama masa sekolah.
