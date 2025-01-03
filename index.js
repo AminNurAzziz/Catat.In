@@ -14,7 +14,8 @@ const User = require('./models/userSchema');
 
 
 //connecting to mongoose
-const url = `mongodb+srv://azziz167:hpF6XorqXppVX2F4@cluster0.aevbadv.mongodb.net/?retryWrites=true&w=majority`;
+// const url = `mongodb+srv://azziz167:hpF6XorqXppVX2F4@cluster0.aevbadv.mongodb.net/?retryWrites=true&w=majority`;
+const url = `mongodb+srv://aminnurazziz1:e3ODC9MNLbfy8pQ4@cluster0.qeglxsk.mongodb.net/expense-tracker`;
 
 
 mongoose.connect(url, {
@@ -84,7 +85,7 @@ app.use((err, req, res, next) => {
     res.status(statusCode).render('error', { err });
 })
 
-//listen to port 3000
-app.listen(4000, () => {
-    console.log('LISTENING ON PORT 3000')
+//listen to port 3005
+app.listen(3005, () => {
+    console.log('LISTENING ON PORT 3005')
 })

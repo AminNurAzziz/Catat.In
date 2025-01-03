@@ -32,8 +32,9 @@ module.exports = {
 
     login: (req, res) => {
         req.flash('success', 'Welcome back!');
-        const redirectUrl = req.session.returnTo || '/expense';
-        delete req.session.returnTo;
+        // const redirectUrl = req.session.returnTo || '/expense';
+        const redirectUrl = '/expense';
+        // delete req.session.returnTo;
         res.redirect(redirectUrl);
         // console.log(req.user._id)
     },
