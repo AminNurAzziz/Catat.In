@@ -3,8 +3,8 @@
   "short_name": "CatatIn",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#C4C4C4",
+  "background_color": "#15b7b9",
+  "theme_color": "#15b7b9",
   "description": "Aplikasi pencatatan pengeluaran sederhana.",
   "icons": [
     {
